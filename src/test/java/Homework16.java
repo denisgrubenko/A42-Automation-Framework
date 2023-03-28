@@ -18,7 +18,7 @@ public class Homework16 extends BaseTest {
         options.addArguments("--remote-allow-origins=*");
 
         WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         String url = "https://bbb.testpro.io/";
         driver.get(url);
@@ -26,7 +26,7 @@ public class Homework16 extends BaseTest {
         WebElement registrationlink = driver.findElement(By.id("hel"));
         registrationlink.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://bbb.testpro.io/registration.php");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.quit();
     }
 }
