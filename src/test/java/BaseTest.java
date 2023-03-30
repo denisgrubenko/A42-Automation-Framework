@@ -45,14 +45,14 @@ public class BaseTest {
         clickLoginButton();
     }
 
-    public WebElement GetAndClickByCSS(String locator){
+    public WebElement getAndClickByCSS(String locator){
 
         WebElement webElement = driver.findElement(By.cssSelector(locator));
         webElement.click();
         return webElement;
     }
 
-    public WebElement GetAndClickByXpath(String locator){
+    public WebElement getAndClickByXpath(String locator){
 
         WebElement webElement = driver.findElement(By.xpath(locator));
         webElement.click();
@@ -64,7 +64,7 @@ public class BaseTest {
         //WebElement successBanner = driver.findElement(By.cssSelector(".success.show"));
         //Assert.assertTrue(successBanner.isDisplayed());
 
-        GetAndClickByCSS(".success.show");
+        getAndClickByCSS(".success.show");
     }
 
 
@@ -77,7 +77,7 @@ public class BaseTest {
     protected void enterPassword(String password) {
 //        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
 //        passwordInput.click();
-        WebElement passwordInput = GetAndClickByCSS("[type='password']");
+        WebElement passwordInput = getAndClickByCSS("[type='password']");
         passwordInput.clear();
         passwordInput.sendKeys(password);
     }
@@ -85,7 +85,7 @@ public class BaseTest {
     protected void enterEmail(String email) {
 //        WebElement emailInput = driver.findElement(By.xpath("//input[@type='email']"));
 //        emailInput.click();
-        WebElement emailInput = GetAndClickByXpath("//input[@type='email']");
+        WebElement emailInput = getAndClickByXpath("//input[@type='email']");
         emailInput.clear();
         emailInput.sendKeys(email);
     }
@@ -93,6 +93,6 @@ public class BaseTest {
     protected void clickLoginButton() {
         //WebElement submitLoginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         //submitLoginButton.click();
-        GetAndClickByCSS("button[type='submit']");
+        getAndClickByCSS("button[type='submit']");
     }
 }
