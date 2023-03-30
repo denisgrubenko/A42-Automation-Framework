@@ -45,22 +45,54 @@ public class BaseTest {
         clickLoginButton();
     }
 
+    public WebElement GetAndClickByCSS(String locator){
+
+        WebElement webElement = driver.findElement(By.cssSelector(locator));
+        webElement.click();
+        return webElement;
+    }
+
+    public WebElement GetAndClickByXpath(String locator){
+
+        WebElement webElement = driver.findElement(By.xpath(locator));
+        webElement.click();
+        return webElement;
+    }
+
+    public void isSuccess(){
+
+        //WebElement successBanner = driver.findElement(By.cssSelector(".success.show"));
+        //Assert.assertTrue(successBanner.isDisplayed());
+
+        GetAndClickByCSS(".success.show");
+    }
+
+
+    public void login(String email) {
+        enterEmail(email);
+        enterPassword("te$t$tudent");
+        clickLoginButton();
+    }
+
     protected void enterPassword(String password) {
-        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
-        passwordInput.click();
+//        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+//        passwordInput.click();
+        WebElement passwordInput = GetAndClickByCSS("[type='password']");
         passwordInput.clear();
         passwordInput.sendKeys(password);
     }
 
     protected void enterEmail(String email) {
-        WebElement emailInput = driver.findElement(By.xpath("//input[@type='email']"));
-        emailInput.click();
+//        WebElement emailInput = driver.findElement(By.xpath("//input[@type='email']"));
+//        emailInput.click();
+        WebElement emailInput = GetAndClickByXpath("//input[@type='email']");
         emailInput.clear();
         emailInput.sendKeys(email);
     }
 
     protected void clickLoginButton() {
-        WebElement submitLoginButton = driver.findElement(By.cssSelector("button[type='submit']"));
-        submitLoginButton.click();
+        //WebElement submitLoginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        //submitLoginButton.click();
+        GetAndClickByCSS("button[type='submit']");
     }
 }
