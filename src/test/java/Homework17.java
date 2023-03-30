@@ -34,7 +34,7 @@ public class Homework17 extends BaseTest {
         }
         driver.get("https://bbb.testpro.io/#!/songs");
 
-        //get first song
+        //get first song 
         GetAndClickByCSS("[draggable='true'] [class='title']");
 
         //click on button "ADD TO"
