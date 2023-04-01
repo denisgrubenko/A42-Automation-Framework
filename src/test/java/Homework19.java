@@ -8,7 +8,7 @@ public class Homework19 extends BaseTest{
 
     @Test(enabled = true)
     public void testDeletePlaylist(){
-
+        //
         String namePl   = "MyPlaylist";
         String selector = "//section[@id='playlists']//li//a[contains(text(),'"+namePl+"')]";
         login();
