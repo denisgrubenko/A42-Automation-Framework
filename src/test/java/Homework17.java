@@ -21,12 +21,9 @@ public class Homework17 extends BaseTest {
             createPlaylist(namePl);
         }
         else {
-            for (WebElement curentPlayList:ListPlaylist ) {
+            for (WebElement currentPlayList:ListPlaylist ) {
                 //bug, we can't delete song, so we delete playlist
-                curentPlayList.click();
-                getAndClickByCSS("[class='del btn-delete-playlist']");
-                getAndClickByCSS("[class='ok']");
-                isSuccess();
+                deletePlaylist(currentPlayList);
 
                 //create playlist
                 createPlaylist(namePl);
@@ -34,7 +31,7 @@ public class Homework17 extends BaseTest {
         }
         driver.get("https://bbb.testpro.io/#!/songs");
 
-        //get first song 
+        //get first song
         getAndClickByCSS("[draggable='true'] [class='title']");
 
         //click on button "ADD TO"
@@ -47,15 +44,4 @@ public class Homework17 extends BaseTest {
 
     }
 
-    private void createPlaylist(String namePl) {
-        //create playlist
-        getAndClickByCSS("[data-testid='sidebar-create-playlist-btn']");
-        getAndClickByCSS("[data-testid='playlist-context-menu-create-simple']");
-
-        WebElement input = getAndClickByCSS("[name='create-simple-playlist-form'] input");
-        input.clear();
-        input.sendKeys(namePl);
-        input.sendKeys(Keys.RETURN);
-        isSuccess();
-    }
 }

@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class ProfileTests extends BaseTest {
 
-    @Test
+    @Test(enabled = true)
     public void successfulLoginTest() {
         login("demo@class.com", "te$t$tudent");
         openProfile();
