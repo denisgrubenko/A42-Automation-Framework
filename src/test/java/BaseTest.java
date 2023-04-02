@@ -32,7 +32,7 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         driver.manage().window().maximize();
         driver.get(URL);
@@ -48,6 +48,7 @@ public class BaseTest {
         enterPassword(password);
         clickLoginButton();
     }
+
 
     public WebElement getAndClickByCSS(String locator){
 
@@ -126,7 +127,7 @@ public class BaseTest {
             getAndClickByCSS("[class='ok']");
         }
 
-        isSuccess();
+        //isSuccess();
     }
 
 

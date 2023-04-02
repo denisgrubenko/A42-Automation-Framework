@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class Homework19 extends BaseTest{
 
     @Test(enabled = true)
-    public void testDeletePlaylist(){
+    public void testDeletePlaylist()throws InterruptedException{
         //
         String namePl   = "MyPlaylist";
         String selector = "//section[@id='playlists']//li//a[contains(text(),'"+namePl+"')]";
@@ -18,14 +19,13 @@ public class Homework19 extends BaseTest{
 
         if (ListPlaylist.isEmpty()) {
             createPlaylist(namePl);
-            WebElement PL = driver.findElement(By.xpath(selector));
-            deletePlaylist(PL);
         }
-        else {
-            for (WebElement currentPlayList:ListPlaylist ) {
-                deletePlaylist(currentPlayList);
-            }
-        }
+
+        WebElement PL = driver.findElement(By.xpath(selector));
+        deletePlaylist(PL);
+
+        WebElement success = driver.findElement(By.cssSelector(".success.show"));
+        Assert.assertTrue(success.isDisplayed());
 
     }
 }
