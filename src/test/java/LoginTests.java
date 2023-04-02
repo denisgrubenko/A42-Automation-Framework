@@ -7,21 +7,21 @@ public class LoginTests extends BaseTest {
     @Test(enabled = true)
     public void successfulLoginTest() {
         login("demo@class.com", "te$t$tudent");
-        WebElement avatar = driver.findElement(By.cssSelector("a .avatar"));
+        WebElement avatar = findElement("a .avatar");
         Assert.assertTrue(avatar.isDisplayed());
     }
 
     @Test(enabled = true)
     public void wrongPasswordLoginTest() {
         login("demo@class.com", "te$t$tuden");
-        WebElement submitLoginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        WebElement submitLoginButton = findElement("button[type='submit']");
         Assert.assertTrue(submitLoginButton.isDisplayed());
     }
 
     @Test(enabled = true)
     public void emptyPasswordLoginTest() {
         login("demo@class.com", "");
-        WebElement submitLoginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        WebElement submitLoginButton = findElement("button[type='submit']");
         Assert.assertTrue(submitLoginButton.isDisplayed());
     }
 

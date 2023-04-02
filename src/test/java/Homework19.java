@@ -12,19 +12,20 @@ public class Homework19 extends BaseTest{
         //
         String namePl   = "MyPlaylist";
         String selector = "//section[@id='playlists']//li//a[contains(text(),'"+namePl+"')]";
+
         login();
 
-        //try to find my playlist
-        List<WebElement> ListPlaylist = driver.findElements(By.xpath(selector));
-
-        if (ListPlaylist.isEmpty()) {
+        try{
+            WebElement MyPlaylist = findElement("//section[@id='playlists']//li//a[contains(text(),'"+namePl+"')]");
+        }
+        catch (Exception e) {
             createPlaylist(namePl);
         }
 
-        WebElement PL = driver.findElement(By.xpath(selector));
+        WebElement PL = findElement(selector);
         deletePlaylist(PL);
 
-        WebElement success = driver.findElement(By.cssSelector(".success.show"));
+        WebElement success = findElement(".success.show");
         Assert.assertTrue(success.isDisplayed());
 
     }

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -32,8 +33,8 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         driver.manage().window().maximize();
         driver.get(URL);
     }
@@ -49,27 +50,6 @@ public class BaseTest {
         clickLoginButton();
     }
 
-
-    public WebElement getAndClickByCSS(String locator){
-
-        WebElement webElement = driver.findElement(By.cssSelector(locator));
-        webElement.click();
-        return webElement;
-    }
-
-    public WebElement getAndClickByXpath(String locator){
-
-        WebElement webElement = driver.findElement(By.xpath(locator));
-        webElement.click();
-        return webElement;
-    }
-
-    public void isSuccess(){
-
-          getAndClickByCSS(".success.show");
-    }
-
-
     public void login(String email) {
         enterEmail(email);
         enterPassword("te$t$tudent");
@@ -82,28 +62,62 @@ public class BaseTest {
         clickLoginButton();
     }
 
+
+    public WebElement findElement(String locator){
+
+        boolean isCSS = true;
+        if (locator.contains("//") || locator.contains("xpath")) isCSS = false;
+
+        if (isCSS)
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+        else
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+
+    }
+
+    public WebElement findElement(String locator, String ID){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+
+    }
+
+
+    public WebElement getAndClick(String locator){
+
+        WebElement webElement = findElement( locator);
+        webElement.click();
+        return webElement;
+    }
+
+
+    public void isSuccess(){
+
+          getAndClick(".success.show");
+    }
+
+
     protected void enterPassword(String password) {
-        WebElement passwordInput = getAndClickByCSS("[type='password']");
+        WebElement passwordInput = getAndClick("[type='password']");
         passwordInput.clear();
         passwordInput.sendKeys(password);
     }
 
     protected void enterEmail(String email) {
-        WebElement emailInput = getAndClickByXpath("//input[@type='email']");
+        WebElement emailInput = getAndClick("//input[@type='email']");
         emailInput.clear();
         emailInput.sendKeys(email);
     }
 
     protected void clickLoginButton() {
-        getAndClickByCSS("button[type='submit']");
+        getAndClick("button[type='submit']");
     }
 
     public void createPlaylist(String namePl) {
         //create playlist
-        getAndClickByCSS("[data-testid='sidebar-create-playlist-btn']");
-        getAndClickByCSS("[data-testid='playlist-context-menu-create-simple']");
+        getAndClick("[data-testid='sidebar-create-playlist-btn']");
+        getAndClick("[data-testid='playlist-context-menu-create-simple']");
 
-        WebElement input = getAndClickByCSS("[name='create-simple-playlist-form'] input");
+        WebElement input = getAndClick("[name='create-simple-playlist-form'] input");
         input.clear();
         input.sendKeys(namePl);
         input.sendKeys(Keys.RETURN);
@@ -116,15 +130,15 @@ public class BaseTest {
 
         currentPlayList.click();
         try{
-            driver.findElement(By.cssSelector("[class='song-list-wrap main-scroll-wrap playlist']"));
+            findElement("[class='song-list-wrap main-scroll-wrap playlist']");
             needPressOK = true;
         }
         catch (Exception e) {
         }
-        getAndClickByCSS("[class='del btn-delete-playlist']");
+        getAndClick("[class='del btn-delete-playlist']");
 
         if(needPressOK==true){
-            getAndClickByCSS("[class='ok']");
+            getAndClick("[class='ok']");
         }
 
         //isSuccess();

@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -13,24 +14,25 @@ public class Homework18 extends BaseTest {
         driver.get("https://bbb.testpro.io/#!/songs");
 
         //get first song
-        getAndClickByCSS("[draggable='true'] [class='title']");
+        getAndClick("[draggable='true'] [class='title']");
 
-        WebElement button  = driver.findElement(By.cssSelector("[class='album-thumb']"));
+        WebElement button  = findElement("[class='album-thumb']");
         new Actions(driver)
                 .moveToElement(button)
                 .perform();
 
-        getAndClickByCSS("[data-testid='play-btn']");
+        getAndClick("[data-testid='play-btn']");
 
         //check #1: there is the sound bar
-        getAndClickByCSS("[alt='Sound bars']");
+        getAndClick("[data-testid='toggle-visualizer-btn']");
 
         //check #2: there is the pause button
         new Actions(driver)
                 .moveToElement(button)
                 .perform();
-        getAndClickByCSS("[data-testid='pause-btn']");
 
+        WebElement success = findElement("[data-testid='pause-btn']");
+        Assert.assertTrue(success.isDisplayed());
     }
 
 }
