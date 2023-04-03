@@ -8,22 +8,23 @@ import java.util.List;
 public class Homework19 extends BaseTest{
 
     @Test(enabled = true)
-    public void testDeletePlaylist()throws InterruptedException{
-        //
-        String namePl   = "MyPlaylist";
-        String selector = "//section[@id='playlists']//li//a[contains(text(),'"+namePl+"')]";
+    public void testDeletePlaylist(){
+
+        String namePlaylist   = "MyPlaylist";
+        String selector = "//section[@id='playlists']//li//a[contains(text(),'"+namePlaylist+"')]";
 
         login();
 
         try{
-            WebElement MyPlaylist = findElement("//section[@id='playlists']//li//a[contains(text(),'"+namePl+"')]");
+            findElement(selector);
         }
         catch (Exception e) {
-            createPlaylist(namePl);
+            createPlaylist(namePlaylist);
+
         }
 
-        WebElement PL = findElement(selector);
-        deletePlaylist(PL);
+        WebElement playlist = findElement(selector);
+        deletePlaylist(playlist);
 
         WebElement success = findElement(".success.show");
         Assert.assertTrue(success.isDisplayed());

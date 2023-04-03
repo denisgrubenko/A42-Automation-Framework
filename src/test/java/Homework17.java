@@ -9,22 +9,17 @@ public class Homework17 extends BaseTest {
     @Test
     public void addSongToPlaylist(){
 
-        String namePl = "MyPlaylist";
-        boolean NeedToCreatePL = true;
+        String namePlaylist = "MyPlaylist";
 
         login("denis.grubenko@gmail.com");
 
         try{
-            WebElement MyPlaylist = findElement("//section[@id='playlists']//li//a[contains(text(),'"+namePl+"')]");
-            NeedToCreatePL = false;
+            findElement("//section[@id='playlists']//li//a[contains(text(),'"+namePlaylist+"')]");
         }
         catch (Exception e) {
+            createPlaylist(namePlaylist);
         }
 
-
-        if (NeedToCreatePL) {
-            createPlaylist(namePl);
-        }
         driver.get("https://bbb.testpro.io/#!/songs");
 
         //get first song
@@ -34,7 +29,7 @@ public class Homework17 extends BaseTest {
         getAndClick("[data-test='add-to-btn']");
 
         //looking for our playlist
-        getAndClick("//p[.='Add 1 song to']/../ul/li[contains(text(),'"+namePl+"')]");
+        getAndClick("//p[.='Add 1 song to']/../ul/li[contains(text(),'"+namePlaylist+"')]");
 
         isSuccess();
 

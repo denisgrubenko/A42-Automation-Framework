@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class Homework18 extends BaseTest {
     @Test(enabled = true)
-    public void playSong()throws InterruptedException{
+    public void playSong(){
 
         login("denis.grubenko@gmail.com");
 
