@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -18,6 +19,7 @@ import java.time.Duration;
 public class BaseTest {
     static WebDriver driver;
     WebDriverWait wait;
+    Actions actions;
     public String url = "https://bbb.testpro.io1/";
 
 
@@ -35,6 +37,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        actions = new Actions(driver);
         driver.manage().window().maximize();
         driver.get(URL);
     }
@@ -112,7 +115,7 @@ public class BaseTest {
         getAndClick("button[type='submit']");
     }
 
-    public void createPlaylist(String namePl) {
+    public WebElement createPlaylist(String namePl) {
         //create playlist
         getAndClick("[data-testid='sidebar-create-playlist-btn']");
         getAndClick("[data-testid='playlist-context-menu-create-simple']");
@@ -122,6 +125,8 @@ public class BaseTest {
         input.sendKeys(namePl);
         input.sendKeys(Keys.RETURN);
         isSuccess();
+
+        return input;
     }
 
     public void deletePlaylist(WebElement currentPlayList) {
@@ -143,6 +148,5 @@ public class BaseTest {
 
         //isSuccess();
     }
-
 
 }

@@ -17,9 +17,7 @@ public class Homework18 extends BaseTest {
         getAndClick("[draggable='true'] [class='title']");
 
         WebElement button  = findElement("[class='album-thumb']");
-        new Actions(driver)
-                .moveToElement(button)
-                .perform();
+        actions.moveToElement(button).perform();
 
         getAndClick("[data-testid='play-btn']");
 
