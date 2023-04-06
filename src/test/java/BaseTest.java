@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -25,8 +26,9 @@ public class BaseTest {
 
 
     @BeforeMethod
-    public void setUpBrowser() {
-        basePage.initBrowser();
+    @Parameters({"URL"})
+    public void setUpBrowser(String URL) {
+        basePage.initBrowser(URL);
         driver = basePage.getDriver();
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
@@ -36,8 +38,6 @@ public class BaseTest {
     public void tearDown() {
         basePage.closeBrowser();
     }
-
-
 
 
 }

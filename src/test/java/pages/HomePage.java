@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage{
 
-
     String locatorPlaylist  = "//section[@id='playlists']//li//a[contains(text(),'@namePlaylist@')]";
-    String locatorInput     = "[data-testid='inline-playlist-name-input']";
     String FirstSongLocator = "[draggable='true'] [class='title']";
     String buttonAddToLocator = "[data-test='add-to-btn']";
     String myPlaylistAddLocator = "//p[.='Add 1 song to']/../ul/li[contains(text(),'@namePlaylist@')]";
@@ -36,7 +34,6 @@ public class HomePage extends BasePage{
     }
 
     public WebElement createPlaylist(String namePl) {
-
 
         //create playlist
         getAndClick(createPlaylistButtonLocator);
@@ -88,7 +85,7 @@ public class HomePage extends BasePage{
             webElement = findElement(locatorPlaylist.replaceAll("@namePlaylist@",namePlaylist));
         }
         catch (Exception e) {
-            webElement = createPlaylist(namePlaylist);
+            createPlaylist(namePlaylist);
             getAndClick(isSuccessLocator);
             //wait for a new element to appear
             webElement = findElement(locatorPlaylist.replaceAll("@namePlaylist@",namePlaylist));
@@ -138,6 +135,7 @@ public class HomePage extends BasePage{
     }
 
     public void inputTextByActive(String newName) {
+
         WebElement input = findElement(locatorInputRename);
         actions.click(input).
                 keyDown(Keys.CONTROL)
