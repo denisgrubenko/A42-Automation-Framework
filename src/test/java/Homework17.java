@@ -12,7 +12,7 @@ public class Homework17 extends BaseTest {
         loginPage.login();
         homePage.findCreateEmptyPlaylist(namePlaylist);
 
-        driver.get("https://bbb.testpro.io/#!/songs");
+        basePage.getDriver().get("https://bbb.testpro.io/#!/songs");
 
         homePage.clickOnFirstSong();
         homePage.addToMyPlaylist(namePlaylist);

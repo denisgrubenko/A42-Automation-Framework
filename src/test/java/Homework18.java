@@ -9,7 +9,7 @@ public class Homework18 extends BaseTest {
 
         loginPage.login();
 
-        driver.get("https://bbb.testpro.io/#!/songs");
+        basePage.getDriver().get("https://bbb.testpro.io/#!/songs");
 
         //get first song
         homePage.clickOnFirstSong();
