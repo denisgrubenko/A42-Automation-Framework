@@ -1,28 +1,33 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
+
+
     @Test(enabled = true)
     public void successfulLoginTest() {
-        login("demo@class.com", "te$t$tudent");
-        WebElement avatar = findElement("a .avatar");
-        Assert.assertTrue(avatar.isDisplayed());
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.login();
+        Assert.assertTrue(homePage.GetUserAvatar().isDisplayed());
     }
 
     @Test(enabled = true)
     public void wrongPasswordLoginTest() {
-        login("demo@class.com", "te$t$tuden");
-        WebElement submitLoginButton = findElement("button[type='submit']");
-        Assert.assertTrue(submitLoginButton.isDisplayed());
+       LoginPage loginPage = new LoginPage(driver);
+       loginPage.login("demo@class.com", "te$t$tuden");
+       loginPage.isNotSuccess();
     }
 
     @Test(enabled = true)
     public void emptyPasswordLoginTest() {
-        login("demo@class.com", "");
-        WebElement submitLoginButton = findElement("button[type='submit']");
-        Assert.assertTrue(submitLoginButton.isDisplayed());
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("demo@class.com", "");
+        loginPage.isNotSuccess();
     }
 
 }

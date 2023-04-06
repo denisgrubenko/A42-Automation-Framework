@@ -1,6 +1,4 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,28 +7,21 @@ public class Homework18 extends BaseTest {
     @Test(enabled = true)
     public void playSong(){
 
-        login("denis.grubenko@gmail.com");
+        loginPage.login();
 
         driver.get("https://bbb.testpro.io/#!/songs");
 
         //get first song
-        getAndClick("[draggable='true'] [class='title']");
+        homePage.clickOnFirstSong();
 
-        WebElement button  = findElement("[class='album-thumb']");
-        actions.moveToElement(button).perform();
+        homePage.pressPlay();
+        homePage.moveMouseToPlayButton();
 
-        getAndClick("[data-testid='play-btn']");
-
-        //check #1: there is the sound bar
-        getAndClick("[data-testid='toggle-visualizer-btn']");
-
-        //check #2: there is the pause button
-        new Actions(driver)
-                .moveToElement(button)
-                .perform();
-
-        WebElement success = findElement("[data-testid='pause-btn']");
+        WebElement success = homePage.getPauseButton();
         Assert.assertTrue(success.isDisplayed());
     }
+
+
+
 
 }
