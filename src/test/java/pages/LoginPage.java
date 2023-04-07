@@ -12,9 +12,9 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
 
 
-    String submitLoginButtonLocator = "button[type='submit']";
-    String passwordFieldLocator = "[type='password']";
-    String emailFieldLocator = "//input[@type='email']";
+    private String submitLoginButtonLocator = "button[type='submit']";
+    private String passwordFieldLocator = "[type='password']";
+    private String emailFieldLocator = "//input[@type='email']";
 
     public LoginPage(WebDriver givenDriver){
         super(givenDriver);

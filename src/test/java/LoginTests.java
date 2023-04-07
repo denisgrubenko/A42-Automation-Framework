@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
-
     @Test(enabled = true)
     public void successfulLoginTest() {
         loginPage.login();

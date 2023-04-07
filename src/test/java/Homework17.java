@@ -3,11 +3,9 @@ import org.testng.annotations.Test;
 
 public class Homework17 extends BaseTest {
 
-    String namePlaylist = "MyPlaylist";
-
     @Test
     public void addSongToPlaylist(){
-
+        String namePlaylist = "MyPlaylist";
 
         loginPage.login();
         homePage.findCreateEmptyPlaylist(namePlaylist);

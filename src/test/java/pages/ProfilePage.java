@@ -7,12 +7,12 @@ import java.util.UUID;
 
 public class ProfilePage extends BasePage{
 
-    String profileName = "span.name";
-    String saveButton = ".btn-submit";
-    String userNameField = "inputProfileName";
-    String currentEmailField = "inputProfileEmail";
-    String currentPasswordField = "inputProfileCurrentPassword";
-    String profile = ".view-profile";
+    private String profileName = "span.name";
+    private String saveButton = ".btn-submit";
+    private String userNameField = "inputProfileName";
+    private String currentEmailField = "inputProfileEmail";
+    private String currentPasswordField = "inputProfileCurrentPassword";
+    private String profile = ".view-profile";
 
     public ProfilePage(WebDriver givenDriver){
         super(givenDriver);

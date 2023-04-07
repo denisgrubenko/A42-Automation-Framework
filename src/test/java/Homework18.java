@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 
 public class Homework18 extends BaseTest {
+
     @Test(enabled = true)
     public void playSong(){
 
@@ -20,8 +21,5 @@ public class Homework18 extends BaseTest {
         WebElement success = homePage.getPauseButton();
         Assert.assertTrue(success.isDisplayed());
     }
-
-
-
 
 }

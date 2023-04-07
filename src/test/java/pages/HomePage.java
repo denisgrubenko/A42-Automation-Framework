@@ -6,22 +6,22 @@ import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage{
 
-    String locatorPlaylist  = "//section[@id='playlists']//li//a[contains(text(),'@namePlaylist@')]";
-    String FirstSongLocator = "[draggable='true'] [class='title']";
-    String buttonAddToLocator = "[data-test='add-to-btn']";
-    String myPlaylistAddLocator = "//p[.='Add 1 song to']/../ul/li[contains(text(),'@namePlaylist@')]";
-    String isSuccessLocator =".success.show";
-    String playlistIsNotEmptyLocator = "[class='song-list-wrap main-scroll-wrap playlist']";
-    String deletePlaylistLocator = "[class='del btn-delete-playlist']";
-    String buttonOKLocator = "[class='ok']";
-    String createPlaylistButtonLocator = "[data-testid='sidebar-create-playlist-btn']";
-    String createPlaylistButtonContextMenuLocator = "[data-testid='playlist-context-menu-create-simple']";
-    String createPlaylistFieldLocator = "[name='create-simple-playlist-form'] input";
-    String avatarLocator = "a .avatar";
-    String playButtonAreaLocator = "[class='album-thumb']";
-    String playButtonLocator = "[data-testid='play-btn']";
-    String pauseButtonLocator = "[data-testid='pause-btn']";
-    String locatorInputRename = "[data-testid='inline-playlist-name-input']";
+    private String locatorPlaylist  = "//section[@id='playlists']//li//a[contains(text(),'@namePlaylist@')]";
+    private String FirstSongLocator = "[draggable='true'] [class='title']";
+    private String buttonAddToLocator = "[data-test='add-to-btn']";
+    private String myPlaylistAddLocator = "//p[.='Add 1 song to']/../ul/li[contains(text(),'@namePlaylist@')]";
+    private String isSuccessLocator =".success.show";
+    private String playlistIsNotEmptyLocator = "[class='song-list-wrap main-scroll-wrap playlist']";
+    private String deletePlaylistLocator = "[class='del btn-delete-playlist']";
+    private String buttonOKLocator = "[class='ok']";
+    private String createPlaylistButtonLocator = "[data-testid='sidebar-create-playlist-btn']";
+    private String createPlaylistButtonContextMenuLocator = "[data-testid='playlist-context-menu-create-simple']";
+    private String createPlaylistFieldLocator = "[name='create-simple-playlist-form'] input";
+    private String avatarLocator = "a .avatar";
+    private String playButtonAreaLocator = "[class='album-thumb']";
+    private String playButtonLocator = "[data-testid='play-btn']";
+    private String pauseButtonLocator = "[data-testid='pause-btn']";
+    private String locatorInputRename = "[data-testid='inline-playlist-name-input']";
 
 
 
