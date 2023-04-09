@@ -20,18 +20,14 @@ public class BasePage {
     Actions actions;
 
     public String url = "https://bbb.testpro.io/";
-
     public WebDriver getDriver(){
         return driver;
     }
-
-
     public void closeBrowser() {
         driver.quit();
     }
 
     public BasePage( ){}
-
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -55,6 +51,7 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 
     }
+
     public WebElement findElement(WebElement locator){
         return locator;
     }
@@ -65,6 +62,7 @@ public class BasePage {
         webElement.click();
         return webElement;
     }
+
     public WebElement getAndClick(WebElement locator){
 
         locator.click();
@@ -94,15 +92,13 @@ public class BasePage {
         driver.get(URL);
     }
 
-
-
     public void doubleClick(WebElement webElement) {
         actions.doubleClick(webElement).perform();
     }
+
     public void doubleClick(String Locator) {
         actions.doubleClick(findElement(Locator)).perform();
     }
-
 
     public void inputTextByActive(String Locator, String newName) {
 
@@ -129,7 +125,4 @@ public class BasePage {
                 .sendKeys(input, Keys.ENTER)
                 .perform();
     }
-
-
-
 }

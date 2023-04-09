@@ -21,5 +21,4 @@ public class LoginTests extends BaseTest {
         loginPage.login("demo@class.com", "");
         loginPage.isNotSuccess();
     }
-
 }

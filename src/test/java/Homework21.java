@@ -19,5 +19,4 @@ public class Homework21 extends BaseTest{
         Assert.assertTrue(homePage.GetIsSuccess().isDisplayed());
 
     }
-
 }

@@ -9,19 +9,16 @@ import pages.*;
 public class BaseTest {
 
     public final BasePage basePage = new BasePage();
-
     public LoginPage loginPage;
     public HomePage homePage;
     public ProfilePage profilePage;
     public PlaylistPage playlistPage;
     public SongsPage songsPage;
 
-
     @BeforeSuite
     public void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
-
 
     @BeforeMethod
     @Parameters({"URL"})
@@ -38,6 +35,5 @@ public class BaseTest {
     public void tearDown() {
         basePage.closeBrowser();
     }
-
 
 }

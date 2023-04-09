@@ -9,7 +9,6 @@ public class SongsPage extends BasePage{
     @FindBy(css="[draggable='true'] [class='title']")
     private WebElement FirstSongLocator;
 
-
     public SongsPage(WebDriver givenDriver){
         super(givenDriver);
     }
@@ -17,5 +16,4 @@ public class SongsPage extends BasePage{
     public void clickOnFirstSong() {
         getAndClick(FirstSongLocator);
     }
-
 }

@@ -68,7 +68,6 @@ public class PlaylistPage extends BasePage{
             createPlaylist(namePlaylist);
             webElement = findElement(locatorPlaylist);
         }
-
         return webElement;
     }
 
@@ -77,21 +76,16 @@ public class PlaylistPage extends BasePage{
         deletePlaylist(element);
     }
 
-
-
     public void addToMyPlaylist(String namePlaylist) {
         //click on button "ADD TO"
         getAndClick(buttonAddToLocator);
 
         //looking for our playlist
         getAndClick(myPlaylistAddLocator);
-
     }
 
     public void inputReName(WebElement webElement, String namePlaylist) {
         doubleClick(webElement);
         inputTextByActive(locatorInputRename, namePlaylist);
     }
-
-
 }

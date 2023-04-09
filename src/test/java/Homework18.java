@@ -16,5 +16,4 @@ public class Homework18 extends BaseTest {
 
         Assert.assertTrue(homePage.getPauseButton().isDisplayed());
     }
-
 }

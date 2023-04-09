@@ -15,7 +15,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath="//input[@type='email']")
     private WebElement emailFieldLocator;
 
-
     public LoginPage(WebDriver givenDriver){
         super(givenDriver);
     }
@@ -28,7 +27,6 @@ public class LoginPage extends BasePage {
     public void isNotSuccess() {
         Assert.assertTrue(submitLoginButtonLocator.isDisplayed());
     }
-
 
     protected LoginPage enterPassword(String password) {
         inputText(passwordFieldLocator,password);

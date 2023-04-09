@@ -16,5 +16,4 @@ public class ProfileTests extends BaseTest {
         String name = profilePage.getProfileName();
         Assert.assertEquals(newName, name);
     }
-
 }

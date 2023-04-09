@@ -32,7 +32,6 @@ public class HomePage extends BasePage{
         getAndClick(linkAllSongsElement);
     }
 
-
     public WebElement GetIsSuccess(){
         return findElement(isSuccessElement);
     }
@@ -51,9 +50,8 @@ public class HomePage extends BasePage{
         WebElement button  = findElement(playButtonAreaElement);
         actions.moveToElement(button).perform();
     }
+
     public WebElement getPauseButton() {
         return findElement(pauseButtonElement);
     }
-
-
 }
