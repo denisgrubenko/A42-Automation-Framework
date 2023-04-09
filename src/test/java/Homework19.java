@@ -9,9 +9,10 @@ public class Homework19 extends BaseTest{
         String namePlaylist = "MyPlaylist";
 
         loginPage.login();
-        homePage.findCreatePlaylist(namePlaylist);
-        homePage.deletePlaylist(namePlaylist);
-        Assert.assertTrue(homePage.GetIsSuccess().isDisplayed());
+        homePage.GetUserAvatar();
+        playlistPage.findCreatePlaylist(namePlaylist);
+        playlistPage.deletePlaylist(namePlaylist);
+        Assert.assertTrue(playlistPage.GetIsSuccess().isDisplayed());
 
     }
 }

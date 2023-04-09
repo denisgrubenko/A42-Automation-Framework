@@ -11,10 +11,10 @@ public class Homework21 extends BaseTest{
         WebElement elementMyPlaylist;
 
         loginPage.login();
-        elementMyPlaylist = homePage.findCreatePlaylist(namePlaylist);
+        homePage.GetUserAvatar();
+        elementMyPlaylist = playlistPage.findCreatePlaylist(namePlaylist);
         String newName = elementMyPlaylist.getText()+1;
-        homePage.doubleClick(elementMyPlaylist);
-        homePage.inputTextByActive(newName);
+        playlistPage.inputReName(elementMyPlaylist, newName);
 
         Assert.assertTrue(homePage.GetIsSuccess().isDisplayed());
 

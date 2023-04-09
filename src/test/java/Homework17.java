@@ -8,14 +8,12 @@ public class Homework17 extends BaseTest {
         String namePlaylist = "MyPlaylist";
 
         loginPage.login();
-        homePage.findCreateEmptyPlaylist(namePlaylist);
+        playlistPage.findCreateEmptyPlaylist(namePlaylist);
+        playlistPage.goToAllSongs();
+        songsPage.clickOnFirstSong();
+        playlistPage.addToMyPlaylist(namePlaylist);
 
-        basePage.getDriver().get("https://bbb.testpro.io/#!/songs");
-
-        homePage.clickOnFirstSong();
-        homePage.addToMyPlaylist(namePlaylist);
-
-        Assert.assertTrue(homePage.GetIsSuccess().isDisplayed());
+        Assert.assertTrue(songsPage.GetIsSuccess().isDisplayed());
 
     }
 

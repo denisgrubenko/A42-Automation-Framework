@@ -9,17 +9,12 @@ public class Homework18 extends BaseTest {
     public void playSong(){
 
         loginPage.login();
+        songsPage.goToAllSongs();
+        songsPage.clickOnFirstSong();
+        songsPage.pressPlay();
+        songsPage.moveMouseToPlayButton();
 
-        basePage.getDriver().get("https://bbb.testpro.io/#!/songs");
-
-        //get first song
-        homePage.clickOnFirstSong();
-
-        homePage.pressPlay();
-        homePage.moveMouseToPlayButton();
-
-        WebElement success = homePage.getPauseButton();
-        Assert.assertTrue(success.isDisplayed());
+        Assert.assertTrue(songsPage.getPauseButton().isDisplayed());
     }
 
 }

@@ -3,10 +3,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
-import pages.BasePage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.ProfilePage;
+import pages.*;
 
 
 public class BaseTest {
@@ -16,6 +13,8 @@ public class BaseTest {
     public LoginPage loginPage;
     public HomePage homePage;
     public ProfilePage profilePage;
+    public PlaylistPage playlistPage;
+    public SongsPage songsPage;
 
 
     @BeforeSuite
@@ -31,6 +30,8 @@ public class BaseTest {
         loginPage = new LoginPage(basePage.getDriver());
         homePage = new HomePage(basePage.getDriver());
         profilePage = new ProfilePage(basePage.getDriver());
+        playlistPage = new PlaylistPage(basePage.getDriver());
+        songsPage = new SongsPage(basePage.getDriver());
     }
 
     @AfterMethod(alwaysRun = true)
