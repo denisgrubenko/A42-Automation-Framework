@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,26 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-
-//    private String isSuccessLocator =".success.show";
-//    private String playButtonAreaLocator = "[class='album-thumb']";
-//    private String playButtonLocator = "[data-testid='play-btn']";
-//    private String pauseButtonLocator = "[data-testid='pause-btn']";
-//    private String linkAllSongsLocator = "[class='songs']";
-
-
-
-    @FindBy(css=".success.show")
-    private WebElement isSuccessElement;
-    @FindBy(css= "[class='album-thumb']")
-    private WebElement playButtonAreaElement;
-    @FindBy(css= "[data-testid='play-btn']")
-    private WebElement playButtonElement;
-    @FindBy(css= "[data-testid='pause-btn']")
-    private WebElement pauseButtonElement;
-    @FindBy(css="[class='songs']")
-    private WebElement linkAllSongsElement;
-
 
     WebDriver driver;
     WebDriverWait wait;
@@ -111,43 +90,11 @@ public class BasePage {
         options.addArguments("--disable-notifications");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        //wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        //actions = new Actions(driver);
         driver.manage().window().maximize();
         driver.get(URL);
-        //driver.get(url);
     }
 
 
-    public WebElement GetIsSuccess(){
-
-        return findElement(isSuccessElement);
-        //return findElement(isSuccessLocator);
-    }
-
-    public void clickOnSuccessBanner(){
-        getAndClick(isSuccessElement);
-        //getAndClick(isSuccessLocator);
-
-    }
-
-    public void pressPlay() {
-
-        moveMouseToPlayButton();
-        getAndClick(playButtonElement);
-
-    }
-
-    public void moveMouseToPlayButton() {
-        WebElement button  = findElement(playButtonAreaElement);
-        actions.moveToElement(button).perform();
-    }
-    public WebElement getPauseButton() {
-
-        return findElement(pauseButtonElement);
-
-    }
 
     public void doubleClick(WebElement webElement) {
         actions.doubleClick(webElement).perform();
@@ -183,9 +130,6 @@ public class BasePage {
                 .perform();
     }
 
-    public void goToAllSongs(){
-        getAndClick(linkAllSongsElement);
 
-    }
 
 }

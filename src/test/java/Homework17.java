@@ -8,12 +8,15 @@ public class Homework17 extends BaseTest {
         String namePlaylist = "MyPlaylist";
 
         loginPage.login();
-        playlistPage.findCreateEmptyPlaylist(namePlaylist);
-        playlistPage.goToAllSongs();
+        playlistPage.deletePlaylist(namePlaylist);
+        homePage.clickOnSuccessBanner();
+        playlistPage.createPlaylist(namePlaylist);
+        homePage.clickOnSuccessBanner();
+        homePage.goToAllSongs();
         songsPage.clickOnFirstSong();
         playlistPage.addToMyPlaylist(namePlaylist);
 
-        Assert.assertTrue(songsPage.GetIsSuccess().isDisplayed());
+        Assert.assertTrue(homePage.GetIsSuccess().isDisplayed());
 
     }
 

@@ -7,17 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class PlaylistPage extends BasePage{
 
-//    private final String locatorPlaylist  = "//section[@id='playlists']//li//a[contains(text(),'@namePlaylist@')]";
-//    private final String buttonAddToLocator = "[data-test='add-to-btn']";
-//    private final String myPlaylistAddLocator = "//p[.='Add 1 song to']/../ul/li[contains(text(),'@namePlaylist@')]";
-//    private final String playlistIsNotEmptyLocator = "[class='song-list-wrap main-scroll-wrap playlist']";
-//    private final String deletePlaylistLocator = "[class='del btn-delete-playlist']";
-//    private final String buttonOKLocator = "[class='ok']";
-//    private final String createPlaylistButtonLocator = "[data-testid='sidebar-create-playlist-btn']";
-//    private final String createPlaylistButtonContextMenuLocator = "[data-testid='playlist-context-menu-create-simple']";
-//    private final String createPlaylistFieldLocator = "[name='create-simple-playlist-form'] input";
-//    private final String locatorInputRename = "[data-testid='inline-playlist-name-input']";
-
     @FindBy(xpath="//section[@id='playlists']//li//a[contains(text(),'MyPlaylist')]")
     public WebElement locatorPlaylist;
     @FindBy(css="[data-test='add-to-btn']")
@@ -54,31 +43,11 @@ public class PlaylistPage extends BasePage{
         input.sendKeys(namePl);
         input.sendKeys(Keys.RETURN);
 
-        clickOnSuccessBanner();
-
         return input;
     }
 
     public void deletePlaylist(WebElement currentPlayList) {
 
-//        boolean needPressOK = false;
-//
-//        currentPlayList.click();
-//        try{
-//            findElement(playlistIsNotEmptyLocator);
-//            needPressOK = true;
-//        }
-//        catch (Exception e) {
-//        }
-//        getAndClick(deletePlaylistLocator);
-//
-//        if(needPressOK==true){
-//            getAndClick(buttonOKLocator);
-//        }
-
-        //GetUserAvatar(); //crutch
-
-        //currentPlayList.click();
         getAndClick(currentPlayList);
         getAndClick(deletePlaylistLocator);
         try{
@@ -87,30 +56,16 @@ public class PlaylistPage extends BasePage{
         }
     }
 
-    public void findCreateEmptyPlaylist(String namePlaylist) {
-
-        try{
-            deletePlaylist(namePlaylist);
-            clickOnSuccessBanner();
-        }
-        catch (Exception e) {
-        }
-        createPlaylist(namePlaylist);
-    }
-
     public WebElement findCreatePlaylist(String namePlaylist) {
 
         WebElement webElement;
 
         try{
-            //webElement = findElement(locatorPlaylist.replaceAll("@namePlaylist@",namePlaylist));
             webElement = findElement(locatorPlaylist);
             webElement.click();
         }
         catch (Exception e) {
             createPlaylist(namePlaylist);
-            //wait for a new element to appear
-            //webElement = findElement(locatorPlaylist.replaceAll("@namePlaylist@",namePlaylist));
             webElement = findElement(locatorPlaylist);
         }
 
@@ -118,7 +73,6 @@ public class PlaylistPage extends BasePage{
     }
 
     public void deletePlaylist(String namePlaylist){
-        //WebElement element = findElement(locatorPlaylist.replaceAll("@namePlaylist@",namePlaylist));
         WebElement element = findElement(locatorPlaylist);
         deletePlaylist(element);
     }
@@ -130,7 +84,6 @@ public class PlaylistPage extends BasePage{
         getAndClick(buttonAddToLocator);
 
         //looking for our playlist
-        //getAndClick(myPlaylistAddLocator.replaceAll("@namePlaylist@",namePlaylist));
         getAndClick(myPlaylistAddLocator);
 
     }

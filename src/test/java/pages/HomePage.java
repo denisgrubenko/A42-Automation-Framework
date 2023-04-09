@@ -6,10 +6,18 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage{
 
-    //private String avatarLocator = "a .avatar";
     @FindBy(css="a .avatar")
     private WebElement avatarLocator;
-
+    @FindBy(css=".success.show")
+    private WebElement isSuccessElement;
+    @FindBy(css= "[class='album-thumb']")
+    private WebElement playButtonAreaElement;
+    @FindBy(css= "[data-testid='play-btn']")
+    private WebElement playButtonElement;
+    @FindBy(css= "[data-testid='pause-btn']")
+    private WebElement pauseButtonElement;
+    @FindBy(css="[class='songs']")
+    private WebElement linkAllSongsElement;
 
 
     public HomePage(WebDriver givenDriver){
@@ -20,8 +28,32 @@ public class HomePage extends BasePage{
        return findElement(avatarLocator);
     }
 
+    public void goToAllSongs(){
+        getAndClick(linkAllSongsElement);
+    }
 
 
+    public WebElement GetIsSuccess(){
+        return findElement(isSuccessElement);
+    }
+
+    public void clickOnSuccessBanner(){
+        getAndClick(isSuccessElement);
+    }
+
+    public void pressPlay() {
+        moveMouseToPlayButton();
+        getAndClick(playButtonElement);
+
+    }
+
+    public void moveMouseToPlayButton() {
+        WebElement button  = findElement(playButtonAreaElement);
+        actions.moveToElement(button).perform();
+    }
+    public WebElement getPauseButton() {
+        return findElement(pauseButtonElement);
+    }
 
 
 }

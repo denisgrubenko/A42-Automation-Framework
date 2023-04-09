@@ -8,11 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-
-//    private String submitLoginButtonLocator = "button[type='submit']";
-//    private String passwordFieldLocator = "[type='password']";
-//    private String emailFieldLocator = "//input[@type='email']";
-
     @FindBy(css="button[type='submit']")
     private WebElement submitLoginButtonLocator;
     @FindBy(css="[type='password']")

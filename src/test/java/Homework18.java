@@ -9,12 +9,12 @@ public class Homework18 extends BaseTest {
     public void playSong(){
 
         loginPage.login();
-        songsPage.goToAllSongs();
+        homePage.goToAllSongs();
         songsPage.clickOnFirstSong();
-        songsPage.pressPlay();
-        songsPage.moveMouseToPlayButton();
+        homePage.pressPlay();
+        homePage.moveMouseToPlayButton();
 
-        Assert.assertTrue(songsPage.getPauseButton().isDisplayed());
+        Assert.assertTrue(homePage.getPauseButton().isDisplayed());
     }
 
 }

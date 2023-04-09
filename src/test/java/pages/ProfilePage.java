@@ -7,13 +7,6 @@ import java.util.UUID;
 
 public class ProfilePage extends BasePage{
 
-//    private String profileName = "span.name";
-//    private String saveButton = ".btn-submit";
-//    private String userNameField = "inputProfileName";
-//    private String currentEmailField = "inputProfileEmail";
-//    private String currentPasswordField = "inputProfileCurrentPassword";
-//    private String profile = ".view-profile";
-
     @FindBy(css="span.name")
     private WebElement profileName;
     @FindBy(css=".btn-submit")
@@ -26,7 +19,6 @@ public class ProfilePage extends BasePage{
     private WebElement currentPasswordField;
     @FindBy(css=".view-profile")
     private WebElement profile;
-
 
 
     public ProfilePage(WebDriver givenDriver){
@@ -60,7 +52,6 @@ public class ProfilePage extends BasePage{
     }
 
     public void openProfile() {
-        //WebElement profile = findElement(profile);
         profile.click();
     }
 

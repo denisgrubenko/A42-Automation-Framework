@@ -12,7 +12,7 @@ public class Homework19 extends BaseTest{
         homePage.GetUserAvatar();
         playlistPage.findCreatePlaylist(namePlaylist);
         playlistPage.deletePlaylist(namePlaylist);
-        Assert.assertTrue(playlistPage.GetIsSuccess().isDisplayed());
+        Assert.assertTrue(homePage.GetIsSuccess().isDisplayed());
 
     }
 }
