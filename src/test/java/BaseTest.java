@@ -5,6 +5,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import pages.*;
 
+import java.net.MalformedURLException;
+
 
 public class BaseTest {
 
@@ -22,7 +24,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"URL"})
-    public void setUpBrowser(String URL) {
+    public void setUpBrowser(String URL) throws MalformedURLException {
         basePage.initBrowser(URL);
         loginPage = new LoginPage(basePage.getDriver());
         homePage = new HomePage(basePage.getDriver());
