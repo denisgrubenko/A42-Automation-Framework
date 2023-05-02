@@ -1,6 +1,5 @@
 package pages;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -8,14 +7,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(css="button[type='submit']")
+    @FindBy(css = "button[type='submit']")
     private WebElement submitLoginButtonLocator;
-    @FindBy(css="[type='password']")
+    @FindBy(css = "[type='password']")
     private WebElement passwordFieldLocator;
-    @FindBy(xpath="//input[@type='email']")
+    @FindBy(xpath = "//input[@type='email']")
     private WebElement emailFieldLocator;
 
-    public LoginPage(WebDriver givenDriver){
+    public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
@@ -29,12 +28,12 @@ public class LoginPage extends BasePage {
     }
 
     protected LoginPage enterPassword(String password) {
-        inputText(passwordFieldLocator,password);
+        inputText(passwordFieldLocator, password);
         return this;
     }
 
     protected LoginPage enterEmail(String email) {
-        inputText(emailFieldLocator,email);
+        inputText(emailFieldLocator, email);
         return this;
     }
 

@@ -4,39 +4,39 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
-    @FindBy(css="a .avatar")
+    @FindBy(css = "a .avatar")
     private WebElement avatarLocator;
-    @FindBy(css=".success.show")
+    @FindBy(css = ".success.show")
     private WebElement isSuccessElement;
-    @FindBy(css= "[class='album-thumb']")
+    @FindBy(css = "[class='album-thumb']")
     private WebElement playButtonAreaElement;
-    @FindBy(css= "[data-testid='play-btn']")
+    @FindBy(css = "[data-testid='play-btn']")
     private WebElement playButtonElement;
-    @FindBy(css= "[data-testid='pause-btn']")
+    @FindBy(css = "[data-testid='pause-btn']")
     private WebElement pauseButtonElement;
-    @FindBy(css="[class='songs']")
+    @FindBy(css = "[class='songs']")
     private WebElement linkAllSongsElement;
 
 
-    public HomePage(WebDriver givenDriver){
+    public HomePage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
     public WebElement GetUserAvatar() {
-       return findElement(avatarLocator);
+        return findElement(avatarLocator);
     }
 
-    public void goToAllSongs(){
+    public void goToAllSongs() {
         getAndClick(linkAllSongsElement);
     }
 
-    public WebElement GetIsSuccess(){
+    public WebElement GetIsSuccess() {
         return findElement(isSuccessElement);
     }
 
-    public void clickOnSuccessBanner(){
+    public void clickOnSuccessBanner() {
         getAndClick(isSuccessElement);
     }
 
@@ -47,7 +47,7 @@ public class HomePage extends BasePage{
     }
 
     public void moveMouseToPlayButton() {
-        WebElement button  = findElement(playButtonAreaElement);
+        WebElement button = findElement(playButtonAreaElement);
         actions.moveToElement(button).perform();
     }
 

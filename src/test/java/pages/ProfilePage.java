@@ -5,23 +5,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.UUID;
 
-public class ProfilePage extends BasePage{
+public class ProfilePage extends BasePage {
 
-    @FindBy(css="span.name")
+    @FindBy(css = "span.name")
     private WebElement profileName;
-    @FindBy(css=".btn-submit")
+    @FindBy(css = ".btn-submit")
     private WebElement saveButton;
-    @FindBy(id="inputProfileName")
+    @FindBy(id = "inputProfileName")
     private WebElement userNameField;
-    @FindBy(id="inputProfileEmail")
+    @FindBy(id = "inputProfileEmail")
     private WebElement currentEmailField;
-    @FindBy(id="inputProfileCurrentPassword")
+    @FindBy(id = "inputProfileCurrentPassword")
     private WebElement currentPasswordField;
-    @FindBy(css=".view-profile")
+    @FindBy(css = ".view-profile")
     private WebElement profile;
 
 
-    public ProfilePage(WebDriver givenDriver){
+    public ProfilePage(WebDriver givenDriver) {
         super(givenDriver);
     }
 
