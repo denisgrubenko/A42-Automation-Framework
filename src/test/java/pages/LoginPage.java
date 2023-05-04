@@ -28,12 +28,12 @@ public class LoginPage extends BasePage {
         Assert.assertTrue(submitLoginButtonLocator.isDisplayed());
     }
 
-    protected LoginPage enterPassword(String password) {
+    public LoginPage enterPassword(String password) {
         inputText(passwordFieldLocator,password);
         return this;
     }
 
-    protected LoginPage enterEmail(String email) {
+    public LoginPage enterEmail(String email) {
         inputText(emailFieldLocator,email);
         return this;
     }
